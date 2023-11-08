@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
+    <xacro:include filename="Inertial_macros.xacro"/>
     <xacro:property name="chassis_length" value="0.3"/>
     <xacro:property name="chassis_width" value="0.2"/>
     <xacro:property name="chassis_height" value="0.2"/>
@@ -61,6 +62,9 @@
                 <box size="${chassis_length} ${chassis_width} ${chassis_height}"/>
             </geometry>
         </collision>
+        <xacro:inertial_box mass="0.5" x="${chassis_length}" y="${chassis_width}" z="${chassis_height}">
+            <origin xyz="${chassis_length/2} 0 ${chassis_height/2}" rpy="0 0 0"/>
+        </xacro:inertial_box>
     </link>
 
     <gazebo reference="chassis">
@@ -89,6 +93,9 @@
                 <sphere radius="${wheel_radius}"/>
             </geometry>
         </collision>
+                <xacro:inertial_cylinder mass="${wheel_mass}" length="${wheel_thickness}" radius="${wheel_radius}">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
     </link>
 
     <gazebo reference="left_Fwheel">
@@ -114,6 +121,9 @@
                 <sphere radius="${wheel_radius}"/>
             </geometry>
         </collision>
+                <xacro:inertial_cylinder mass="${wheel_mass}" length="${wheel_thickness}" radius="${wheel_radius}">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
     </link>
 
     <gazebo reference="left_Bwheel">
@@ -142,6 +152,9 @@
                 <sphere radius="${wheel_radius}"/>
             </geometry>
         </collision>
+                <xacro:inertial_cylinder mass="${wheel_mass}" length="${wheel_thickness}" radius="${wheel_radius}">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
     </link>
 
     <gazebo reference="right_Fwheel">
@@ -167,6 +180,9 @@
                 <sphere radius="${wheel_radius}"/>
             </geometry>
         </collision>
+                <xacro:inertial_cylinder mass="${wheel_mass}" length="${wheel_thickness}" radius="${wheel_radius}">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
     </link>
 
     <gazebo reference="right_Bwheel">
