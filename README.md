@@ -8,3 +8,9 @@ Install slam_toolbox use online_async with sim_time_true to publish the map, kee
 change mapper*.yaml file to load the start mapping or load an old map and specify in params_file:= if the file is changed at a different location 
 
 
+road map --
+
+add camera 
+change the rplidar scaning from a certain range 
+check gazebo arm
+add gazzebo arm
