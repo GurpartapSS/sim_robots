@@ -11,5 +11,8 @@ Added Camera description and Gazebo plugin. Install rqt_image_view to view compr
 
 Road map -->  
 change the rplidar scaning from a certain range  
-check gazebo arm  
-add gazzebo arm  
+
+
+![alt text](./robot_arm_bareBone.jpg)
+
+
