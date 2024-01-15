@@ -17,6 +17,9 @@
         <color rgba="0.7 0.4 0.0 1" />
     </material>
 
+    <xacro:property name="PI" value="3.14159"/>
+
+
     <xacro:macro name="inertia_box" params="m l w h xyz rpy">
         <inertial>
             <origin xyz="${xyz}" rpy="${rpy}" />
