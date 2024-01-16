@@ -1,17 +1,17 @@
-Install ROS Humble  
-Install colcon, build a skeleton ws  
-Install joint_state_publisher_gui to get the wheel joints pubished to Rviz correctly use_sim_time:=true  
-Build the robot in URDF and run it in RVIZ with fixed frame as base_link  
-Install Gazebo -- make changes to the world as you like and then use world:="world_name"  
+
+
+Using ROS2 Humble  
+Clone the repo to get the 2 bases: Mobile base and robot arm.
+Launch the desired file to get view the base in rviz or gazebo
 use teleop_twist keyboard or controller to run the robot around and see the odom, baselink and wheel transforms  
-Install slam_toolbox use online_async with sim_time_true to publish the map, keep the fixed_frame to map  
-change mapper*.yaml file to load the start mapping or load an old map and specify in params_file:= if the file is changed at a different location   
-Added Camera description and Gazebo plugin. Install rqt_image_view to view compressed and uncompressed images  
 
+Current state: -->
+Mobile base can be run using teleopkeyboard
+Robot arm can be controlled using joint_state_trajectory
 
-Road map -->  
+TODO: -->  
 change the rplidar scaning from a certain range  
-
+Add kinematics to robot arm
 
 ![alt text](./robot_arm_bareBone.jpg)
 
