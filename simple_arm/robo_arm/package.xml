@@ -3,8 +3,8 @@
 <package format="3">
   <name>robo_arm</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="gurpartapsingh.sarkaria@gmail.com">igris</maintainer>
+  <description>Robot Arm Description and visuals</description>
+  <maintainer email="gavy0197@gmail.com">igris</maintainer>
   <license>TODO: License declaration</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
