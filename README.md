@@ -13,6 +13,6 @@ TODO: -->
 change the rplidar scaning from a certain range  
 Add kinematics to robot arm
 
-![alt text](./robot_arm_bareBone.jpg)
+![alt text](./simple_arm/robot_arm_bareBone.jpg)
 
 
