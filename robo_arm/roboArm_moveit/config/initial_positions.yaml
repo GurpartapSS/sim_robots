@@ -1,0 +1,7 @@
+initial_position:
+  bases_joint: 0
+  base_arm1_joint: 0
+  arm1_arm2_joint: 0
+  arm2_arm3_joint: 0
+  arm3_wrist_joint: 0
+  wrist_gripl_joint: 0

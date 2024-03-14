@@ -1,0 +1,9 @@
+ros2 control
+
+for every link - add transmission tag
+https://github.com/ros-controls/gazebo_ros2_control/blob/humble/doc/index.rst
+
+https://drive.google.com/file/d/13NupEtymDF7Vk6lLXQPo_V_zkeyi2nS9/view
+
+ros2 run tf2_tools view_frames
+ros2 run tf2_ros tf2_echo link1 link2

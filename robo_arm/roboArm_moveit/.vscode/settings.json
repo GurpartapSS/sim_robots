@@ -1,0 +1,16 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/igris/maya_ws/install/robo_util/local/lib/python3.10/dist-packages",
+        "/home/igris/Downloads/rv/Section5_Control/arduinobot_ws/install/arduinobot_py_examples/lib/python3.10/site-packages",
+        "/home/igris/Downloads/rv/Section5_Control/arduinobot_ws/install/arduinobot_controller/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/igris/maya_ws/install/robo_util/local/lib/python3.10/dist-packages",
+        "/home/igris/Downloads/rv/Section5_Control/arduinobot_ws/install/arduinobot_py_examples/lib/python3.10/site-packages",
+        "/home/igris/Downloads/rv/Section5_Control/arduinobot_ws/install/arduinobot_controller/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}
