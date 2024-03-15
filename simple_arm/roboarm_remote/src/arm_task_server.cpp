@@ -32,6 +32,8 @@ private:
     rclcpp_action::GoalResponse goalCallback(
         const rclcpp_action::GoalUUID &uuid, std::shared_ptr<const ArmTask::Goal> goal)
         {
+            (void)uuid;
+            (void)goal;
             RCLCPP_INFO(this->get_logger(),"Received a goal");
 
             return rclcpp_action::GoalResponse::ACCEPT_AND_EXECUTE;
