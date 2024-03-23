@@ -1,0 +1,7 @@
+if problem with conflicting opencv libraries for cv_bridge and opencv 
+
+sudo apt remove libopencv-dev python3-opencv
+sudo apt purge libopencv-dev python3-opencv
+sudo apt remove ros-humble-cv-bridge 
+sudo apt purge ros-humble-cv-bridge 
+clone https://github.com/ros-perception/vision_opencv, build cv_bridge and source
