@@ -17,8 +17,12 @@ find_package(image_transport REQUIRED)
 add_executable(imageViewerNode src/imageViewerNode.cpp)
 ament_target_dependencies(imageViewerNode rclcpp sensor_msgs cv_bridge OpenCV)
 
+add_executable(objectDetection src/objectDetection.cpp)
+ament_target_dependencies(objectDetection rclcpp sensor_msgs cv_bridge OpenCV)
+
 install(TARGETS
 imageViewerNode
+objectDetection
   DESTINATION lib/${PROJECT_NAME}
   )
 

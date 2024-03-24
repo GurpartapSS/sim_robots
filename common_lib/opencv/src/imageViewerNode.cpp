@@ -24,7 +24,6 @@ private:
             cv_bridge::CvImagePtr cv_ptr = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::BGR8);
             if(!cv_ptr->image.empty()) {
                 cv::imshow("Camera Image", cv_ptr->image);
-                test = false;
                 cv::waitKey(1);
             }
         }
