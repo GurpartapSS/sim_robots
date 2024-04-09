@@ -1,0 +1,8 @@
+#Goal
+float32[] joints
+---
+#result
+bool success
+---
+#feedback
+int32 precentage
