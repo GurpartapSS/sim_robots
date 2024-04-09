@@ -21,16 +21,17 @@ public:
     }
     // Z up X Y on ground
     // return: m1 - b_static in XY, m2 - a1 in YZ, m3 - a2 in YZ, m4 - orientation in in YZ
-    std::vector<float> convert(double x, double y, double d)
-    {
-        std::vector<float> port;
-        port.push_back(atan2(d, y));                      // - m1
-        port.push_back(M_PI / 2 - getAngle(j1_, d, j2_)); // - m2
-        port.push_back(M_PI - getAngle(j1_, j2_, d));     // - m3
-        port.push_back(getAngle(j2_, d, j1_)-(M_PI/2));            // - m4
+  std::vector<float> convert(double x, double y, double d) {
+    std::vector<float> port;
+    float m1_adj = atan2(x, d);
+    port.push_back(atan2(d, y));                             // - m1
+    port.push_back(M_PI / 2 - getAngle(j1_, d, j2_) - m1_adj); // - m2
+    port.push_back(M_PI - getAngle(j1_, j2_, d));            // - m3
+    float wrist_adj = getAngle(j2_, d, j1_) - (M_PI/2 - atan2(d,x)); 
+    port.push_back(wrist_adj - (M_PI / 2));      // - m4
 
-        return port;
-    }
+    return port;
+  }
 
 private:
     int j1_;          // length1
