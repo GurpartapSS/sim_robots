@@ -16,24 +16,28 @@ using namespace std::placeholders;
 class ik
 {
 public:
-    ik(int j1, int j2) : j1_(j1), j2_(j2), orientation_(0) {}
-    // Z up X Y on ground
-    // return: m1 - b_static in XY, m2 - a1 in YZ, m3 - a2 in YZ, m4 - orientation in in YZ
-  std::vector<float> convert(double x, double y, double d) {
-    std::vector<float> port;
-    float m1_adj = atan2(x, d);
-    port.push_back(atan2(d, y));                             // - m1
-    port.push_back(M_PI / 2 - getAngle(j1_, d, j2_) - m1_adj); // - m2
-    port.push_back(M_PI - getAngle(j1_, j2_, d));            // - m3
-    float wrist_adj = getAngle(j2_, d, j1_) - (M_PI/2 - atan2(d,x)); 
-    port.push_back(wrist_adj - (M_PI / 2));      // - m4
+    ik(int j1, int j2) : j1_(j1), j2_(j2), orientation_(0)
+    {
+    }
+    // h - height, d - depth, y - position on floor
+    // return: m1 - b_static in XY, m2 - a1 in YZ, m3 - a2 in YZ, m4 - orientation in in YZ, please follow the reference image
+    std::vector<float> convert(double h, double y, double d)
+    {
+        std::vector<float> port;
+        float raise_base = sqrt(d*d + h*h);
+        float m1_adj = atan2(h, d);                                                  // angle by which the triangle is lifted
+        port.push_back(atan2(y, d));                                                 // m1 - movement of base along the floor left/right
+        port.push_back(M_PI / 2 - getAngle(j1_, raise_base, j2_) - m1_adj);          // m2 - angle to move from 90deg rest position, front/back 
+        port.push_back(M_PI - getAngle(j1_, j2_, raise_base));                       // m3 - angle to move wrt arm1 rest alignment, front/back
+        float wrist_adj = getAngle(j2_, raise_base, j1_) - (M_PI/2 - atan2(d,h)); 
+        port.push_back(wrist_adj);                                      // m4 - angle to move wrt arm2 keeping horizzontal alignment, up/down
 
-    return port;
-  }
+        return port;
+    }
 
 private:
-    int j1_;          // arm1 from base
-    int j2_;          // arm2 from arm1
+    int j1_;          // length1
+    int j2_;          // length2
     int orientation_; // position wrt obj, 0 is standing
     static const int hand_ca = 0;
 
@@ -73,7 +77,6 @@ public:
 
         RCLCPP_INFO(this->get_logger(),"Sending a goal");
         auto future_goal_handle = count_until_client_->async_send_goal(goal, goal_options);
-        // timer_ = this->create_wall_timer(std::chrono::seconds(2), std::bind(&CartisanToJointsNode::timercallback, this));
 
     }
 
@@ -101,7 +104,6 @@ private:
         {
             RCLCPP_INFO(this->get_logger(),"Goal Canceled");
         }
-            int reached_number = result.result->success;
     }
 
     void goalResponseCallBack(const GoalHandle::SharedPtr &goal_handle) {
@@ -116,14 +118,7 @@ private:
     void feedbackCallBack( const GoalHandle::SharedPtr &goal_handle,
     const std::shared_ptr<const ArmJoints::Feedback> feedback) {
         (void)goal_handle;
-        // int number = feedback->precentage;
-        // RCLCPP_INFO(this->get_logger(),"Feedback %d",number);
-    }
-
-    void timercallback() {
-        // RCLCPP_INFO(this->get_logger(),"cancel goal");
-        // count_until_client_->async_cancel_goal(goal_);
-        timer_->cancel();
+        (void)feedback;
     }
 };
 
