@@ -16,9 +16,7 @@ using namespace std::placeholders;
 class ik
 {
 public:
-    ik(int j1, int j2) : j1_(j1), j2_(j2), orientation_(0)
-    {
-    }
+    ik(int j1, int j2) : j1_(j1), j2_(j2), orientation_(0) {}
     // Z up X Y on ground
     // return: m1 - b_static in XY, m2 - a1 in YZ, m3 - a2 in YZ, m4 - orientation in in YZ
   std::vector<float> convert(double x, double y, double d) {
@@ -34,8 +32,8 @@ public:
   }
 
 private:
-    int j1_;          // length1
-    int j2_;          // length2
+    int j1_;          // arm1 from base
+    int j2_;          // arm2 from arm1
     int orientation_; // position wrt obj, 0 is standing
     static const int hand_ca = 0;
 
