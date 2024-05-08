@@ -50,7 +50,7 @@ private:
 class CartisanToJointsNode : public rclcpp::Node
 {
 public:
-    CartisanToJointsNode() : Node("cartisan_to_joints"), converter_(25, 25)
+    CartisanToJointsNode() : Node("cartisan_to_joints"), converter_(12, 12)
     {
         count_until_client_ = rclcpp_action::create_client<ArmJoints>(this,
         "arm_joints");
