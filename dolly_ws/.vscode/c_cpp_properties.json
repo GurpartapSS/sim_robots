@@ -1,0 +1,32 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/igris/maya_ws/install/inverse_kine/include/**",
+        "/home/igris/maya_ws/install/roboarm_remote/include/**",
+        "/home/igris/maya_ws/install/robo_util/include/**",
+        "/home/igris/maya_ws/install/cv_bridge/include/**",
+        "/home/igris/slam_ws/install/turtlebot3_gazebo/include/**",
+        "/home/igris/slam_ws/install/turtlebot3_fake_node/include/**",
+        "/home/igris/practice_ros_ws/install/udemy_actionserver/include/**",
+        "/home/igris/practice_ros_ws/install/practice_ros2/include/**",
+        "/home/igris/practice_ros_ws/install/activity_pkg/include/**",
+        "/opt/ros/humble/include/**",
+        "/opt/ros/humble/include/**/**",
+        "/home/igris/dolly_ws/src/nemo_controller/include/**",
+        "/home/igris/dolly_ws/src/slam_nav/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
