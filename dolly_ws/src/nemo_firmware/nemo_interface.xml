@@ -1,0 +1,9 @@
+<library path="nemo_firmware">
+    <class name="nemo_firmware/nemoInterface"
+        type="nemo_firmware::nemoInterface"
+        base_class_type="hardware_interface::SystemInterface">
+        <description>
+            nemo_hardware_interface
+        </description>
+    </class>
+</library>

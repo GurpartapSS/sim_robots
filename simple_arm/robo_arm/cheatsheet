@@ -7,3 +7,8 @@ https://drive.google.com/file/d/13NupEtymDF7Vk6lLXQPo_V_zkeyi2nS9/view
 
 ros2 run tf2_tools view_frames
 ros2 run tf2_ros tf2_echo link1 link2
+
+
+The issue that the object was not able to be picked up has been eventually solved. The reason behind it was not friction settings nor the gripper but the controller for UR5, which used position controllers without PID gains. This caused Gazebo to bring some warning messages saying that the physics engine used might not work properly. After using effort controllers with PID gains, the robot in Gazebo has come to be able to pick up an object eventually.
+
+https://answers.gazebosim.org//question/19381/grasping-unable-to-lift-object/
